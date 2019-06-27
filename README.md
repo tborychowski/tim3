@@ -1,18 +1,18 @@
-# Darkapp
-Just another dark-themed whatsapp-web-client wrapped in electron, for macos.
+# TIM3
+Github notifications wrapped in electron, for macos.
 
 It's far from perfect, use it at your own risk!
 
 
 ## Features
 - beautiful [nord](https://github.com/arcticicestudio/nord) theme
-- responsive (shows only contacts' avatars when window is smaller)
+- responsive
 
 
 ## Install
 ```sh
-git clone https://github.com/tborychowski/darkapp.git
-cd darkapp
+git clone https://github.com/tborychowski/tim3.git
+cd tim3
 npm i
 npm start
 ```
