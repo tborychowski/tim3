@@ -58,9 +58,11 @@ body .page-content { padding: 0; width: auto; }
 .application-main hr { border-bottom-color: var(--bg-dark2); }
 
 
+.application-main .gutter { margin: 0; }
+
 
 /* SIDEBAR */
-.gutter .float-left { position: fixed; left: -5px; top: 0; bottom: 0; padding-top: 40px; background: var(--bg-darkest); }
+.gutter .float-left { position: fixed; left: 0; top: 0; bottom: 0; padding-top: 40px; background: var(--bg-darkest); }
 .gutter .float-right { padding-top: 10px; }
 .filter-list .filter-item { color: var(--text-light3); }
 .filter-list .filter-item.selected { background-color: var(--bg-dark2); }

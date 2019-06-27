@@ -1,15 +1,24 @@
-const {app, BrowserWindow, ipcMain} = require('electron');
+const {app, BrowserWindow, ipcMain, Tray} = require('electron');
 const windowStateKeeper = require('electron-window-state');
 const contextMenu = require('electron-context-menu');
 const fs = require('fs');
 const path = require('path');
 const css = fs.readFileSync(path.join(__dirname, 'page.css'), 'utf8');
 const js = fs.readFileSync(path.join(__dirname, 'page.js'), 'utf8');
-let win;
+let win, tray;
+
+const ICON = {
+	dimmed: path.join(__dirname, 'icons', 'icon-menubar-dimmed.png'),
+	white: path.join(__dirname, 'icons', 'icon-menubar-white.png'),
+};
 
 contextMenu({ showInspectElement: true });
 
-ipcMain.on('unread-count', (ev, arg) => app.setBadgeCount(parseInt(arg, 10)));
+ipcMain.on('unread-count', (ev, arg) => {
+	const count = parseInt(arg, 10);
+	tray.setImage(count > 0 ? ICON.white : ICON.dimmed);
+	app.setBadgeCount(count);
+});
 
 
 function createWindow () {
@@ -43,10 +52,23 @@ function createWindow () {
 	win.webContents.on('dom-ready', () => {
 		win.webContents.insertCSS(css);
 		win.webContents.executeJavaScript(js, true).then(res => console.log(res));
-		win.show();
+		// win.show();
 	});
 	// win.webContents.openDevTools();
+	createTray();
 }
+
+
+function createTray () {
+	tray = new Tray(ICON.dimmed);
+	tray.on('click', () => {
+		if (!win) return;
+		if (win.isVisible()) win.hide();
+		else win.show();
+	});
+}
+
+
 
 if (!app.requestSingleInstanceLock()) app.quit(); // Prevent multiple instances of the app
 
