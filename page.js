@@ -16,8 +16,8 @@ function reload () {
 }
 
 function sendCount() {
-	const countEl = document.querySelector('.filter-list>li>a .count');
-	const count = countEl ? parseInt(countEl.innerText, 10) : 0;
+	const countEl = document.querySelector('.filter-list .filter-item.selected .count');
+	const count = countEl ? countEl.innerText : '0';
 	ipcRenderer.send('unread-count', count);
 }
 
