@@ -1,0 +1,97 @@
+:root {
+	--bg-darkest: #1c212b;
+	--bg-dark0: #2e3440;
+	--bg-dark1: #3b4252;
+	--bg-dark2: #434c5e;
+	--bg-dark3: #4c566a;
+
+	--bg-light0: #d8dee9;
+	--bg-light1: #e5e9f0;
+	--bg-light2: #eceff4;
+
+	--text-dark0: #2e3440;
+	--text-dark1: #3b4252;
+	--text-dark2: #434c5e;
+	--text-dark3: #4c566a;
+
+	--text-light0: #d8dee9;
+	--text-light1: #e5e9f0;
+	--text-light2: #eceff4;
+	--text-light3: #eceff488;
+
+	--link0: #8fbcbb;
+	--link1: #88c0d0;
+	--link2: #81a1c1;
+	--link3: #5e81ac;
+
+	--highlight: #4c566a;
+	--accent: #d08770;
+	--accent-alt: #b48ead;
+
+	--info: #5e81ac;
+	--danger: #bf616a;
+	--warning: #ebcb8b;
+	--success: #a3be8c;
+}
+
+.js-header-wrapper,
+.application-main .tabnav,
+.notification-actions .js-save-notification,
+.notification-actions .mute,
+.notification-actions .unmute,
+body .Popover,
+.footer { display: none !important; }
+
+html, body { height: 100%; }
+body {
+	background-color: var(--bg-dark0) !important;
+	color: var(--text-light0) !important;
+	min-width: 0 !important;
+	-webkit-app-region: drag;
+}
+
+body .page-content { padding: 0; width: auto; }
+
+
+.application-main .btn { background: var(--bg-light0); }
+.application-main .rule,
+.application-main hr { border-bottom-color: var(--bg-dark2); }
+
+
+
+/* SIDEBAR */
+.gutter .float-left { position: fixed; left: -5px; top: 0; bottom: 0; padding-top: 40px; background: var(--bg-darkest); }
+.gutter .float-right { padding-top: 10px; }
+.filter-list .filter-item { color: var(--text-light3); }
+.filter-list .filter-item.selected { background-color: var(--bg-dark2); }
+.filter-list .filter-item:hover { background-color: var(--bg-dark2); }
+
+
+/* MAIN TABLE */
+.application-main .boxed-group .heading,
+.application-main .boxed-group>h3 { background: none; border: none; border-bottom: 1px solid var(--bg-dark2); }
+
+.application-main .boxed-group-inner { background-color: var(--bg-dark0); color: var(--text-light0); border: none; }
+.application-main .boxed-group-inner .list-group-item-link { color: inherit; }
+.application-main .notifications-list .mark-all-as-read,
+.application-main .boxed-group-inner .notification-actions .btn-link { color: inherit; }
+
+.application-main .notification-actions .age { color: var(--text-light3); }
+
+.application-main .notifications .list-group-item { border: none; }
+
+.application-main .notifications .read.navigation-focus,
+.application-main .notifications .read[aria-selected=true],
+
+.application-main .list-group-item.navigation-focus,
+.application-main .list-group-item[aria-selected=true] { background-color: var(--bg-dark2); }
+
+
+
+body .blankslate { border: none; background: none; }
+
+@media only screen and (max-width: 700px) {
+	.notification-actions .age,
+	.notification-actions .AvatarStack { display: none !important; }
+
+}

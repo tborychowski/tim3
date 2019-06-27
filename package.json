@@ -1,0 +1,39 @@
+{
+	"name": "tim3",
+	"productName": "tim3",
+	"description": "gh notifications wrapper",
+	"version": "0.0.1",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tborychowski/tim3.git"
+	},
+	"scripts": {
+		"postinstall": "electron-builder install-app-deps",
+		"start": "gulp",
+		"pack": "electron-builder --dir",
+		"build": "build --mac"
+	},
+	"author": "Tom",
+	"license": "GPL-3.0-or-later",
+	"build": {
+		"appId": "com.electron.tim3",
+		"mac": {
+			"category": "public.app-category.developer-tools",
+			"darkModeSupport": true
+		},
+		"publish": [
+			"github"
+		]
+	},
+	"dependencies": {
+		"electron-context-menu": "^0.12.1",
+		"electron-window-state": "^5.0.3"
+	},
+	"devDependencies": {
+		"electron": "^5.0.6",
+		"electron-builder": "^20.44.4",
+		"gulp": "^4.0.2",
+		"gulp-run-electron": "^3.0.2"
+	}
+}
