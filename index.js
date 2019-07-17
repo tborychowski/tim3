@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain, Tray} = require('electron');
+const { app, BrowserWindow, ipcMain, Tray } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 const contextMenu = require('electron-context-menu');
 const fs = require('fs');
@@ -12,6 +12,9 @@ const ICON = {
 	white: path.join(__dirname, 'icons', 'icon-menubar-white.png'),
 };
 
+
+
+
 contextMenu({ showInspectElement: true });
 
 ipcMain.on('unread-count', (ev, arg) => {
@@ -20,8 +23,7 @@ ipcMain.on('unread-count', (ev, arg) => {
 	app.setBadgeCount(count);
 });
 
-
-function createWindow () {
+function createWindow() {
 	const mainWindowState = windowStateKeeper({ defaultWidth: 400, defaultHeight: 800 });
 
 	win = new BrowserWindow({
@@ -36,18 +38,18 @@ function createWindow () {
 		minWidth: 400,
 		show: false,
 		webPreferences: {
-			nodeIntegration: true
-		}
-
+			nodeIntegration: true,
+		},
 	});
-	win.on('closed', () => win = undefined);
-	win.webContents.on('crashed', () => { win.destroy(); createWindow(); });
+	win.on('closed', () => (win = undefined));
+	win.webContents.on('crashed', () => {
+		win.destroy();
+		createWindow();
+	});
 	mainWindowState.manage(win);
 
-	win.loadURL('https://github.wdf.sap.corp/notifications', {
-	// win.loadURL('https://github.com/notifications', {
-		userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'
-	});
+	// win.loadURL('https://github.wdf.sap.corp/notifications');
+	win.loadURL('https://github.com/notifications');
 
 	win.webContents.on('dom-ready', () => {
 		win.webContents.insertCSS(css);
@@ -58,8 +60,7 @@ function createWindow () {
 	createTray();
 }
 
-
-function createTray () {
+function createTray() {
 	tray = new Tray(ICON.dimmed);
 	tray.on('click', () => {
 		if (!win) return;
@@ -67,8 +68,6 @@ function createTray () {
 		else win.show();
 	});
 }
-
-
 
 if (!app.requestSingleInstanceLock()) app.quit(); // Prevent multiple instances of the app
 

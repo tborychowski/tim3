@@ -88,12 +88,15 @@ body .page-content { padding: 0; width: auto; }
 .application-main .list-group-item.navigation-focus,
 .application-main .list-group-item[aria-selected=true] { background-color: var(--bg-dark2); }
 
+.notifications .list-group-item-name { max-width: unset !important; }
 
 
 body .blankslate { border: none; background: none; }
 
-@media only screen and (max-width: 700px) {
-	.notification-actions .age,
+@media only screen and (max-width: 1000px) {
 	.notification-actions .AvatarStack { display: none !important; }
+}
 
+@media only screen and (max-width: 900px) {
+	.notification-actions .age { display: none !important; }
 }

@@ -20,19 +20,20 @@
 		"appId": "com.electron.tim3",
 		"mac": {
 			"category": "public.app-category.developer-tools",
-			"darkModeSupport": true
+			"darkModeSupport": true,
+			"target": "pkg"
 		},
 		"publish": [
 			"github"
 		]
 	},
 	"dependencies": {
-		"electron-context-menu": "^0.12.1",
+		"electron-context-menu": "^0.13.0",
 		"electron-window-state": "^5.0.3"
 	},
 	"devDependencies": {
-		"electron": "^5.0.6",
-		"electron-builder": "^20.44.4",
+		"electron": "^5.0.7",
+		"electron-builder": "^21.0.15",
 		"gulp": "^4.0.2",
 		"gulp-run-electron": "^3.0.2"
 	}
