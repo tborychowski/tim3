@@ -68,6 +68,12 @@ body .page-content { padding: 0; width: auto; }
 .filter-list .filter-item.selected { background-color: var(--bg-dark2); }
 .filter-list .filter-item:hover { background-color: var(--bg-dark2); }
 
+.filter-list.small .filter-item { display: flex; flex-direction: row-reverse; justify-content: space-between; }
+
+.css-truncate.css-truncate-target,
+.css-truncate .css-truncate-target { max-width: initial !important; padding-right: 10px; }
+
+
 
 /* MAIN TABLE */
 .application-main .boxed-group .heading,
@@ -80,7 +86,7 @@ body .page-content { padding: 0; width: auto; }
 
 .application-main .notification-actions .age { color: var(--text-light3); }
 
-.application-main .notifications .list-group-item { border: none; }
+.application-main .notifications .list-group-item { border: none; border-radius: 4px; }
 
 .application-main .notifications .read.navigation-focus,
 .application-main .notifications .read[aria-selected=true],
@@ -89,6 +95,7 @@ body .page-content { padding: 0; width: auto; }
 .application-main .list-group-item[aria-selected=true] { background-color: var(--bg-dark2); }
 
 .notifications .list-group-item-name { max-width: unset !important; }
+.notifications .list-group-item-name .type-icon { margin-top: 0; }
 
 
 body .blankslate { border: none; background: none; }
@@ -99,4 +106,9 @@ body .blankslate { border: none; background: none; }
 
 @media only screen and (max-width: 900px) {
 	.notification-actions .age { display: none !important; }
+}
+
+@media only screen and (max-width: 600px) {
+	.gutter .float-left.col-3 { display: none !important; }
+	.js-navigation-container { width: 100% !important; padding-top: 34px !important; }
 }
