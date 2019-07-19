@@ -4,6 +4,13 @@ Github notifications wrapped in electron, for macos.
 It's far from perfect, use it at your own risk!
 
 
+## TODO
+- [ ] update badge on refresh
+- [ ] autorefresh
+- [ ] remember selected nav (participating)
+
+
+
 ## Features
 - beautiful [nord](https://github.com/arcticicestudio/nord) theme
 - responsive

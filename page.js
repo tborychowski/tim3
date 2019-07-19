@@ -16,14 +16,17 @@ function onClick (e) {
 function reload () {
 	document.querySelector('.filter-item.selected').click();
 	setTimeout(sendCount, 1000);
-	// setTimeout(reload, 10000);
+	// setTimeout(reload, 3000);
 }
 
 function sendCount() {
 	const countEl = document.querySelector('.filter-list .filter-item.selected .count');
 	const count = countEl ? countEl.innerText : '0';
+	console.log(count);
 	ipcRenderer.send('unread-count', count);
 }
 
 document.addEventListener('click', onClick);
-reload();
+// reload();
+setTimeout(sendCount, 1000);
+// alert(123);

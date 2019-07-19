@@ -41,19 +41,19 @@ function createWindow() {
 			nodeIntegration: true,
 		},
 	});
-	win.on('closed', () => (win = undefined));
+	// win.on('closed', () => (win = undefined));
 	win.webContents.on('crashed', () => {
 		win.destroy();
 		createWindow();
 	});
 	mainWindowState.manage(win);
 
-	win.loadURL('https://github.wdf.sap.corp/notifications');
-	// win.loadURL('https://github.com/notifications');
+	// win.loadURL('https://github.wdf.sap.corp/notifications');
+	win.loadURL('https://github.com/notifications');
 
-	win.webContents.on('dom-ready', () => {
+	win.webContents.once('dom-ready', () => {
 		win.webContents.insertCSS(css);
-		win.webContents.executeJavaScript(js, true).then(res => console.log(res));
+		win.webContents.executeJavaScript(js, true);
 		// win.show();
 	});
 	// win.webContents.openDevTools();
@@ -77,5 +77,5 @@ app.on('second-instance', () => {
 	win.show();
 });
 
-app.on('window-all-closed', app.quit);
+// app.on('window-all-closed', app.quit);
 app.on('ready', createWindow);
