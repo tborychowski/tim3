@@ -16,7 +16,7 @@ function onClick (e) {
 function reload () {
 	document.querySelector('.filter-item.selected').click();
 	setTimeout(sendCount, 1000);
-	// setTimeout(reload, 3000);
+	setTimeout(reload, 5000);
 }
 
 function sendCount() {
@@ -27,6 +27,4 @@ function sendCount() {
 }
 
 document.addEventListener('click', onClick);
-// reload();
-setTimeout(sendCount, 1000);
-// alert(123);
+reload();

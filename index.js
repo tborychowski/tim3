@@ -48,8 +48,8 @@ function createWindow() {
 	});
 	mainWindowState.manage(win);
 
-	// win.loadURL('https://github.wdf.sap.corp/notifications');
-	win.loadURL('https://github.com/notifications');
+	win.loadURL('https://github.wdf.sap.corp/notifications');
+	// win.loadURL('https://github.com/notifications');
 
 	win.webContents.once('dom-ready', () => {
 		win.webContents.insertCSS(css);
